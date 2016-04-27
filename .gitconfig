@@ -1,0 +1,36 @@
+
+[core]
+	editor = vim
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[user]
+  name = Arjun Balaji
+  email = arjunblj@gmail.com
+[credential]
+  helper = osxkeychain
+[alias]
+  co     = checkout
+  ci     = commit
+  st     = status
+  br     = branch
+  df     = diff --patience
+  dw     = diff --word-diff --patience
+  dt     = difftool
+  dtc    = difftool --cached
+  dwc    = diff --word-diff --cached --patience
+  dfc    = diff --cached --patience
+  lg     = log -p
+  ls     = ls-files
+  lol    = log --graph --decorate --pretty=format:\"%Cblue %h%C(magenta) %ad %C(cyan) %d %Creset %s %C(green)[%an]\" --date=short        # Pretty print the commit log graph from the current branch
+  lal    = log --graph --decorate --pretty=format:\"%Cblue %h%C(magenta) %ad %C(cyan) %d %Creset %s %C(green)[%an]\" --date=short --all  # Pretty print the commit log graph of all branches
+  l     = log --pretty=format:\"%Cblue%h %C(magenta)%ad %C(green)[%an] %Creset%s %C(cyan)%d\" --date=short                               # Pretty print the commit log from the current branch
+  la     = log --pretty=format:\"%Cblue%h %C(magenta)%ad %C(green)[%an] %Creset%s %C(cyan)%d\" --date=short --all                        # Pretty print the commit log of all branches
+  up     = log --since yesterday --author arjunblj@gmail.com --pretty=short                                                             # Find all commits since yesterday
+  author = log --pretty=format:\"%C(blue) %h %C(magenta) %ad %Creset %s %C(green) [%an]\" --date=short --author                          # Find all commits for the given author (takes the author name/email as argument)
+  ready  = rebase -i
+  pushu  = push -u origin                      # Create a remote and set the local branch to track it (takes as argument the name of the branch to push)
+  stap   = stash save --keep-index             # Stash everything, except changes that are staged for commit
+[push]
+  default = simple
